@@ -1,3 +1,4 @@
+import 'package:fetch_movies_app/view/screens/search_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
@@ -12,7 +13,7 @@ class BottomNavBar extends StatelessWidget {
     List<Widget> _buildScreens() {
       return [
         const HomeScreen(),
-        const Screen3(),
+        const SearchScreen(),
       ];
     }
 
@@ -42,7 +43,7 @@ class BottomNavBar extends StatelessWidget {
       screens: _buildScreens(),
       items: _navBarsItems(),
       confineInSafeArea: true,
-      backgroundColor: Colors.black, // Default is Colors.white.
+      backgroundColor: Colors.black87, // Default is Colors.white.
       handleAndroidBackButtonPress: true, // Default is true.
       resizeToAvoidBottomInset:
           true, // This needs to be true if you want to move up the screen when keyboard appears. Default is true.
@@ -68,19 +69,6 @@ class BottomNavBar extends StatelessWidget {
       ),
       navBarStyle:
           NavBarStyle.style9, // Choose the nav bar style with this property.
-    );
-  }
-}
-
-class Screen3 extends StatelessWidget {
-  const Screen3({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text("Screen3"),
-      ),
     );
   }
 }
