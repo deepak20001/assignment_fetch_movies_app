@@ -1,10 +1,22 @@
 import 'package:fetch_movies_app/controllers/home_provider.dart';
-import 'package:fetch_movies_app/widgets/bottom_navbar.dart';
+import 'package:fetch_movies_app/view/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 
-void main() {
-  runApp(const MyApp());
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // enter full-screen
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
+
+  // for setting orientation to portrait only
+  SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((value) {
+    runApp(const MyApp());
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -36,7 +48,7 @@ class MyApp extends StatelessWidget {
             backgroundColor: Colors.black,
           ),
         ),
-        home: const BottomNavBar(),
+        home: const SplashScreen(),
       ),
     );
   }

@@ -9,4 +9,11 @@ class Routes {
       MaterialPageRoute(builder: (ctx) => widget),
     );
   }
+
+  Future<dynamic> pushReplacement(
+      {required Widget widget, required BuildContext context}) {
+    return Navigator.of(context).pushReplacement(
+      MaterialPageRoute(builder: (ctx) => widget),
+    );
+  }
 }
